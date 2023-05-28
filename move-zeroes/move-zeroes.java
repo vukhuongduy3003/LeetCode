@@ -22,9 +22,8 @@ class Solution {
                 snowBallSize++;
             }
             else if (snowBallSize > 0){
-                int temp = nums[i];
-                nums[i] = 0;
-                nums[i - snowBallSize] = temp;
+                nums[i-snowBallSize]=nums[i];
+                nums[i]=0;
             }
         }
     }
