@@ -1,8 +1,12 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        ans = 0
+        nums.sort()
         n = len(nums)
-        for i in range(0, n):
-            ans ^= nums[i] ^ i
-        ans ^= n
-        return ans
+        first, last = 0, n - 1
+        while first <= last:
+            mid = first + (last - first) // 2
+            if mid == nums[mid]:
+                first = mid + 1
+            else:
+                last = mid - 1
+        return first
