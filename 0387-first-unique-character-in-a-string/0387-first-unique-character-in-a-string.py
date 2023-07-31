@@ -1,7 +1,13 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        diction = Counter(s)
-        for i in range(len(s)):
-            if diction[s[i]] == 1:
-                return i
+        dic = dict()
+        for i in s:
+            if i in dic:
+                dic[i] += 1
+            else:
+                dic[i] = 1
+        
+        for i in s:
+            if dic[i] == 1:
+                return s.index(i)
         return -1
