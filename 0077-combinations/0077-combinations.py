@@ -1,15 +1,14 @@
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        arr = []
-        nums = [0] * k
-
-        def backtrack(pos, cur):
-            if pos == k:
-                arr.append(nums[:])
+        def backtrack(first = 1, curr = []):
+            if len(curr) == k:
+                ans.append(curr[:])
                 return
-            for i in range(cur, n-k+pos+2):
-                nums[pos] = i
-                backtrack(pos+1, i+1)
-
-        backtrack(0, 1)
-        return arr
+            for i in range(first, n + 1):
+                curr.append(i)
+                backtrack(i + 1, curr)
+                curr.pop()
+        
+        ans = []
+        backtrack()
+        return ans
