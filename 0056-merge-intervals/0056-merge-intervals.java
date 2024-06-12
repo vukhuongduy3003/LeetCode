@@ -13,6 +13,6 @@ class Solution {
                 ans[j - 1] = intervals[i];
             }
         }
-        return j == 0? intervals : Arrays.copyOf(ans, j);
+        return Arrays.copyOf(ans, j);
     }
 }
