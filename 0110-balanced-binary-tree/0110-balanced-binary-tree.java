@@ -28,7 +28,6 @@ class Solution {
         if (root == null) {
             return true;
         }
-        if (height(root) == -1) return false;
-        return true;
+        return height(root) == -1? false : true;
     }
 }
